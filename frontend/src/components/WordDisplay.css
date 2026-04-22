@@ -1,0 +1,77 @@
+.word-display {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 80px;
+  padding: 1rem 0;
+}
+
+.letter-cell {
+  width: 48px;
+  height: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.letter-char {
+  font-family: var(--font-mono);
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+
+.letter-underline {
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--text-muted);
+  transition: all var(--transition-smooth);
+}
+
+.letter-cell.revealed .letter-underline {
+  background: var(--accent-indigo);
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+}
+
+.letter-cell.revealed .letter-char {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
+}
+
+.letter-cell.won .letter-underline {
+  background: var(--accent-emerald);
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.5);
+}
+
+.letter-cell.won .letter-char {
+  color: var(--accent-emerald);
+  text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+}
+
+.letter-cell.lost-reveal .letter-underline {
+  background: var(--accent-rose);
+  box-shadow: 0 0 12px rgba(244, 63, 94, 0.4);
+}
+
+.letter-cell.lost-reveal .letter-char {
+  color: var(--accent-rose);
+  text-shadow: 0 0 15px rgba(244, 63, 94, 0.4);
+}
+
+@media (max-width: 600px) {
+  .letter-cell {
+    width: 34px;
+    height: 50px;
+  }
+  .letter-char {
+    font-size: 1.6rem;
+  }
+}
